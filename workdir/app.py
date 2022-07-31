@@ -3,7 +3,6 @@ from boto3.dynamodb.conditions import Key
 import datetime
 import hashlib
 import jwt
-import json
 
 def getuser(email):
     table = boto3.resource('dynamodb').Table('users')

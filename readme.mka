@@ -1,0 +1,8 @@
+https://docs.aws.amazon.com/lambda/latest/dg/python-package.html
+
+pip install --target ./package requests
+
+cd package
+zip -r ../my-deployment-package.zip .
+
+zip -g my-deployment-package.zip ./workdir/app.py
