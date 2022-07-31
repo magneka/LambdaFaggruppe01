@@ -1,0 +1,15 @@
+version: '3.9'
+
+services:
+  pylambda:
+    image: public.ecr.aws/lambda/python:3.8
+    #build: 
+      #context: .
+      #dockerfile: Dockerfile
+    ports:
+      - 9000:8080
+    volumes:
+      - ./workdir:/var/task/
+      # unngå mapping til cache fungerer ikke fordi denne blir opprettet for sent...
+      - /var/task/__pycache__
+    command: app.handler
