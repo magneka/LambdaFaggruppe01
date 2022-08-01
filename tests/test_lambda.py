@@ -1,6 +1,12 @@
 import pytest
+import sys
 
-from workdir import app
+# For å kjøre pystest
+sys.path.append("/Users/magnealvheim/Documents/Source/AWS/LambdaFaggruppe/workdir")
+import app
+
+# For å kjøre test fra vscode
+#from workdir import app
 
 class TestServiceHandler:
 
@@ -9,7 +15,7 @@ class TestServiceHandler:
         """ Generates API GW Event"""
 
         return {
-            "body": '{ "test": "body"}',           
+            "body": '{ "userid": "paula99@example.com", "password": "wy3mSZ1y@9"}',           
             "requestContext": {},           
             "headers": { },
             "httpMethod": "POST",

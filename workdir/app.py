@@ -3,6 +3,7 @@ from boto3.dynamodb.conditions import Key
 import datetime
 import hashlib
 import jwt
+import json
 
 def getuser(email):
     table = boto3.resource('dynamodb').Table('users')
@@ -45,17 +46,29 @@ def createjwttoken(user):
 
 def handler(event, context):
 
-    token = None
-    user = getuser('paula99@example.com')
-    validated = checkpassword(user, 'wy3mSZ1y@9')
-    print ('Password correct?:', validated)
-    if (validated):
-        token = createjwttoken(user)
-        print (f"The secret token: {token}")
+    if (event['path'] == '/login' and event['httpMethod'] == 'POST') :
+        
+        token = None
 
-        return {
-            'statusCode': 200,
-            'body': {
-                 'token': token
+        body = json.loads(event['body'])
+        userid = body['userid']
+        password = body['password']
+        user = getuser(userid)
+        #user = getuser('paula99@example.com')
+        #password = 'wy3mSZ1y@9'
+
+        validated = checkpassword(user, password)
+        print ('Password correct?:', validated)
+        if (validated):
+            token = createjwttoken(user)
+            print (f"The secret token: {token}")
+
+            return {
+                'statusCode': 200,
+                'body': {
+                    'token': token
+                }
             }
-        }
+        
+    # Returner uautorisert
+    return { 'statusCode' : 401 }
