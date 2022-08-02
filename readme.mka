@@ -1,8 +1,18 @@
 https://docs.aws.amazon.com/lambda/latest/dg/python-package.html
 
-pip install --target ./package requests
 
-cd package
-zip -r ../my-deployment-package.zip .
+LAYER:
+======
+Zip file der alle dependencies ligger i en katalog "PYTHON"
+Lag en katalog dockerlayer og lag file for dependencies.
+Legg inn en linje for hver depencie i en requirements.txt file
 
-zip -g my-deployment-package.zip ./workdir/app.py
+Bruk docker til å generere layerfilene, dette må gjøres for å få linux binaries, slik som på AWS
+
+Kommandoer:
+----------
+cd ./dockerlayer
+docker run -v ${pwd}:/var/task "amazon/aws-sam-cli-build-image-python3.8" /bin/sh -c "pip install -r requirements.txt -t layerfiles/python; exit"
+cd ./layerfiles
+c:\util\GnuWin32\bin\zip.exe -r ../layer.zip .
+
