@@ -2,8 +2,8 @@ import pytest
 import sys
 
 # For å kjøre pystest, legg til path til lambda
-sys.path.append("/source/lambda")
-import app
+sys.path.append("/source/lambda04")
+import lambda_function as app
 
 # For å kjøre test fra vscode
 #from workdir import app
@@ -29,7 +29,7 @@ class TestServiceHandler:
 
     def test_lambda_handler(self, event, context):
 
-        ret = app.handler(event, "")
+        ret = app.lambda_handler(event, "")
         
         token = ret["body"]["token"]
         print ("Token:", token )

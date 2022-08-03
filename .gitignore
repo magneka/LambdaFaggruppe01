@@ -1,3 +1,5 @@
 source/dockerlayer/layer.zip
 source/tests/__pycache__/
 tests/__pycache__/
+source/layer.zip
+source/lambda04/__pycache__/
