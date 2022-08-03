@@ -1,4 +1,3 @@
-package/
-deployment-package.zip
-workdir/__pycache__/
-dockerlayer/layer.zip
+source/dockerlayer/layer.zip
+source/tests/__pycache__/
+tests/__pycache__/

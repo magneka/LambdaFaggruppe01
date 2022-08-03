@@ -1,8 +1,8 @@
 import pytest
 import sys
 
-# For å kjøre pystest
-sys.path.append("/Users/magnealvheim/Documents/Source/AWS/LambdaFaggruppe/workdir")
+# For å kjøre pystest, legg til path til lambda
+sys.path.append("/source/lambda")
 import app
 
 # For å kjøre test fra vscode

@@ -1,5 +1,22 @@
 https://docs.aws.amazon.com/lambda/latest/dg/python-package.html
 
+Python versjon:
+---------------
+Containeren har python 3.9, men er bruker image 3.8.  Vet ikke hvorfor,
+men du må klikke nederst i vscode og velge python versjon,  Når det er gjort
+fungerer både test og run current.
+
+
+PIP
+----
+Dersom problemer kan du tvinge reinstall
+pip install --upgrade --force-reinstall Boto3
+pip install --upgrade --force-reinstall jwt
+pip install --upgrade --force-reinstall pyjwt
+
+installere requirements
+pip install -r requirements.txt
+
 
 LAYER:
 ======
