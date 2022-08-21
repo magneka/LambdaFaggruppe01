@@ -33,3 +33,53 @@ docker run -v ${pwd}:/var/task "amazon/aws-sam-cli-build-image-python3.8" /bin/s
 cd ./layerfiles
 c:\util\GnuWin32\bin\zip.exe -r ../layer.zip .
 
+UNIT TESTS
+----------
+Legg til extrapath i settings.json
+
+ "python.analysis.extraPaths": [
+       ..
+        "./lambda05",
+    ]
+
+PYTHON VERSJON:
+---------------
+Du kan i terminal skrive which
+
+root@17dce3244567:/source# which python
+/usr/local/bin/python
+root@17dce3244567:/source# which pytest
+/usr/local/bin/pytest
+
+Bruk samme python (se nede til høyre i vscode)
+Ellers får du ikke pakker etc til å matche og tester fungerer ikke
+
+TIMEOUT 
+-------
+JWT token generering tar litt tid, default på 3 sek timer ut.
+Bruk 10 sek.
+
+BRUK AV JWT API
+---------------
+Det er forskjell i C# og Python. C# kan ha rest api uten å sette opp AWS API.
+Det ser ut som om det er påkrevd i Python for POST.
+
+CURL
+____
+
+Get mot function url (00, 01, 02, 03, 04)
+curl -X GET \
+    'https://55rpnckaulh5xfdeo64vdrih4y0syiqk.lambda-url.eu-west-1.on.aws' \
+    -H 'Content-Type: application/json'    
+
+Post mot function url
+curl -X POST \
+    'https://55rpnckaulh5xfdeo64vdrih4y0syiqk.lambda-url.eu-west-1.on.aws/login' \
+    -H 'Content-Type: application/json' \
+    -d '"userid": "aula99@example.com", "password":"wy3mSZ1y@9"'
+
+Post mot API (05 og 05)
+curl -X POST \
+    'https://9s9hsi4o62.execute-api.eu-west-1.amazonaws.com/login' \
+    -H 'Content-Type: application/json' \
+    -d '"userid": "aula99@example.com", "password":"wy3mSZ1y@9"'

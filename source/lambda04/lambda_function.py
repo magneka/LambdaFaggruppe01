@@ -5,6 +5,7 @@ import hashlib
 import jwt
 import json
 import os
+import uuid
 
 def createUserHash(userName, userEmail, userPass):
     salt = os.urandom(32) # Remember this
@@ -84,30 +85,30 @@ def createjwttoken(user):
     return token
 
 def lambda_handler(event, context):
-
-    if (event['path'] == '/login' and event['httpMethod'] == 'POST') :
+    
+    print (event)
+    
+    if event['rawPath'] == "/login":
         
-        token = None
-
-        body = json.loads(event['body'])
-        userid = body['userid']
-        password = body['password']
+        # Body kan være decoded base64
+        decodedEvent = json.loads(event['body'])
+        userid =  decodedEvent['userid']
+        password =  decodedEvent['password']
+        
         user = getuser(userid)
-        #user = getuser('paula99@example.com')
-        #password = 'wy3mSZ1y@9'
 
         validated = checkpassword(user, password)
-        print ('Password correct?:', validated)
+        
+        token = None
         if (validated):
             token = createjwttoken(user)
-            print (f"The secret token: {token}")
-
-            return {
-                'statusCode': 200,
-                'body': {
-                    'token': token
-                }
-            }
         
-    # Returner uautorisert
-    return { 'statusCode' : 401 }
+            return { 
+                'token': token
+            }
+    
+    # Kommer du hit, er du ikke logget på        
+    return { 
+        'statusCode' : 401 
+    }
+    
