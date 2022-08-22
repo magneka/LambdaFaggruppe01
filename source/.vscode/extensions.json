@@ -1,0 +1,16 @@
+{
+    "recommendations": [
+        "ms-python.vscode-pylance",
+        "donjayamanne.python-environment-manager",
+        "littlefoxteam.vscode-python-test-adapter",
+        "ms-vscode.test-adapter-converter",
+        "hbenl.vscode-test-explorer",
+        "ms-toolsai.jupyter",
+        "ms-toolsai.jupyter-renderers",
+        "ms-toolsai.jupyter-keymap",
+        "ms-python.python",
+        "amazonwebservices.aws-toolkit-vscode",
+        "hariscodes.vscode-dynamodb",
+        "rangav.vscode-thunder-client"
+    ]
+}

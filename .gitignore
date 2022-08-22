@@ -3,3 +3,5 @@ source/tests/__pycache__/
 tests/__pycache__/
 source/layer.zip
 source/lambda04/__pycache__/
+package/
+deployment-package.zip
