@@ -2,6 +2,10 @@ source/dockerlayer/layer.zip
 source/tests/__pycache__/
 tests/__pycache__/
 source/layer.zip
-source/lambda04/__pycache__/
 package/
 deployment-package.zip
+source/lambda00/__pycache__/
+source/lambda01/__pycache__/
+source/lambda02/__pycache__/
+source/lambda03/__pycache__/
+source/lambda04/__pycache__/
