@@ -83,3 +83,8 @@ curl -X POST \
     'https://9s9hsi4o62.execute-api.eu-west-1.amazonaws.com/login' \
     -H 'Content-Type: application/json' \
     -d '"userid": "aula99@example.com", "password":"wy3mSZ1y@9"'
+
+installer aws cli
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
