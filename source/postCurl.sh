@@ -1,8 +1,6 @@
 #!/bin/bash
-curl -X POST \
-    'https://9s9hsi4o62.execute-api.eu-west-1.amazonaws.com/login' \
-    -H 'Content-Type: application/json' \
-    -d '"userid": "aula99@example.com", "password":"wy3mSZ1y@9"' 
+curl -X GET \
+    'https://55rpnckaulh5xfdeo64vdrih4y0syiqk.lambda-url.eu-west-1.on.aws/' 
 
 sleep 15
 aws logs tail  /aws/lambda/ucpython
