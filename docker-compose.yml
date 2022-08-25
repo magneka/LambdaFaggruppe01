@@ -11,5 +11,5 @@ services:
       - ./source:/source/
       # Map the location of the secrets file,
       # because we NEVER want to check in secrets
-      #- c:/Users/magnea/.aws:/root/.aws/
-      - /Users/magnealvheim/.aws:/root/.aws/
+      - c:/Users/magnea/.aws:/root/.aws/
+      #- /Users/magnealvheim/.aws:/root/.aws/
